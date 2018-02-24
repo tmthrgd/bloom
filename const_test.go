@@ -1,6 +1,9 @@
 package bloom
 
-import "testing"
+import (
+	"math/rand"
+	"testing"
+)
 
 func TestConstantTimeBasic(t *testing.T) {
 	f := New(1000, 4)
@@ -24,5 +27,27 @@ func TestConstantTimeBasic(t *testing.T) {
 	}
 	if !n3b {
 		t.Errorf("%v should be in the second time we look.", n3)
+	}
+}
+
+func BenchmarkTest(b *testing.B) {
+	f := NewWithEstimates(1000, 0.0001)
+	key := make([]byte, 100)
+	rand.Read(key)
+	f.Add(key)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		f.Test(key)
+	}
+}
+
+func BenchmarkConstantTimeTest(b *testing.B) {
+	f := NewWithEstimates(1000, 0.0001)
+	key := make([]byte, 100)
+	rand.Read(key)
+	f.Add(key)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		f.ConstantTimeTest(key)
 	}
 }
