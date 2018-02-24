@@ -1,10 +1,10 @@
 Bloom filters
 -------------
 
-[![Master Build Status](https://secure.travis-ci.org/willf/bloom.png?branch=master)](https://travis-ci.org/willf/bloom?branch=master)
-[![Coverage Status](https://coveralls.io/repos/github/willf/bloom/badge.svg?branch=master)](https://coveralls.io/github/willf/bloom?branch=master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/willf/bloom)](https://goreportcard.com/report/github.com/willf/bloom)
-[![GoDoc](https://godoc.org/github.com/willf/bloom?status.svg)](http://godoc.org/github.com/willf/bloom)
+[![Master Build Status](https://secure.travis-ci.org/tmthrgd/bloom.png?branch=master)](https://travis-ci.org/tmthrgd/bloom?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/tmthrgd/bloom/badge.svg?branch=master)](https://coveralls.io/github/tmthrgd/bloom?branch=master)
+[![Go Report Card](https://goreportcard.com/badge/github.com/tmthrgd/bloom)](https://goreportcard.com/report/github.com/tmthrgd/bloom)
+[![GoDoc](https://godoc.org/github.com/tmthrgd/bloom?status.svg)](https://godoc.org/github.com/tmthrgd/bloom)
 
 A Bloom filter is a representation of a set of _n_ items, where the main
 requirement is to make membership queries; _i.e._, whether an item is a
@@ -42,12 +42,12 @@ that estimating the FP rate will clear the Bloom filter.
 
 Discussion here: [Bloom filter](https://groups.google.com/d/topic/golang-nuts/6MktecKi1bE/discussion)
 
-Godoc documentation: https://godoc.org/github.com/willf/bloom
+Godoc documentation: https://godoc.org/github.com/tmthrgd/bloom
 
 ## Installation
 
 ```bash
-go get -u github.com/willf/bloom
+go get -u github.com/tmthrgd/bloom
 ```
 
 ## Contributing
