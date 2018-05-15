@@ -44,10 +44,10 @@ func constantTimeLeftShift64(x uint64, y uint) uint64 {
 	 *  that use shift or rotations by amounts that depend on
 	 *  potentially secret data (e.g. RC5 encryption)."
 	 */
-	for i, y := 64, int(y); i > 0; i >>= 1 {
+	for i, y := 32, int(y); i > 0; i >>= 1 {
 		v := subtle.ConstantTimeLessOrEq(i, y)
 		x = constantTimeSelect64(v, x<<uint(i), x)
-		y = subtle.ConstantTimeSelect(v, y-i, y)
+		y -= i & (0 - v)
 	}
 	return x
 }
