@@ -150,11 +150,6 @@ errcheck:
 	@mkdir -p target/report
 	GOPATH=$(GOPATH) errcheck ./  | tee target/report/errcheck.txt
 
-# Suggest code simplifications
-gosimple:
-	@mkdir -p target/report
-	GOPATH=$(GOPATH) gosimple ./  | tee target/report/gosimple.txt
-
 # AST scanner
 astscan:
 	@mkdir -p target/report
@@ -168,7 +163,7 @@ docs:
 	@echo '<html><head><meta http-equiv="refresh" content="0;./127.0.0.1:6060/pkg/'${CVSPATH}'/'${PROJECT}'/index.html"/></head><a href="./127.0.0.1:6060/pkg/'${CVSPATH}'/'${PROJECT}'/index.html">'${PKGNAME}' Documentation ...</a></html>' > target/docs/index.html
 
 # Alias to run all quality-assurance checks
-qa: fmtcheck test vet lint coverage cyclo ineffassign misspell structcheck varcheck errcheck gosimple
+qa: fmtcheck test vet lint coverage cyclo ineffassign misspell structcheck varcheck errcheck
 
 # --- INSTALL ---
 
@@ -184,7 +179,6 @@ deps:
 	GOPATH=$(GOPATH) go get github.com/opennota/check/cmd/structcheck
 	GOPATH=$(GOPATH) go get github.com/opennota/check/cmd/varcheck
 	GOPATH=$(GOPATH) go get github.com/kisielk/errcheck
-	GOPATH=$(GOPATH) go get honnef.co/go/tools/cmd/gosimple
 	GOPATH=$(GOPATH) go get github.com/GoASTScanner/gas/cmd/gas/...
 
 # Remove any build artifact
